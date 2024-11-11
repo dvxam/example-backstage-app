@@ -11,6 +11,7 @@ spec:
   providesApis:
     - service-registry-http-api
     - service-registry-async-api
+    - service-registry-graphql-api
 
 ---
 apiVersion: backstage.io/v1alpha1
