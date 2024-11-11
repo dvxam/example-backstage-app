@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: service-registry
+  description: A service that manages the listing and registration of Services.
+spec:
+  type: service
+  lifecycle: production
+  owner: sre-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: service-registry-http-api
+  description: HTTP API for CRUD operations on services in the Service Registry.
+spec:
+  type: openapi
+  lifecycle: production
+  owner: sre-team
+  definition:
+    $text: ./apis/private/openapi.yaml
+# ---
+# apiVersion: backstage.io/v1alpha1
+# kind: API
+# metadata:
+#   name: service-registry-graphql-api
+#   description: GraphQL API for managing services in the Service Registry.
+# spec:
+#   type: graphql
+#   lifecycle: production
+#   owner: sre-team
+#   definition:
+#     $text: ./apis/private/graphql.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: service-registry-async-api
+  description: Async API for service creation, renaming, and deletion events in the Service Registry.
+spec:
+  type: asyncapi
+  lifecycle: production
+  owner: sre-team
+  definition:
+    $text: ./apis/private/asyncapi.yaml

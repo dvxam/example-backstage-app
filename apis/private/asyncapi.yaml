@@ -1,0 +1,46 @@
+asyncapi: "2.0.0"
+info:
+  title: Service Registry Async API
+  version: "1.0.0"
+  description: Async events for service creation, renaming, and deletion in the Service Registry.
+channels:
+  serviceCreated:
+    subscribe:
+      summary: Subscribe to service creation events
+      message:
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            owner:
+              type: string
+  serviceRenamed:
+    subscribe:
+      summary: Subscribe to service rename events
+      message:
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+            oldName:
+              type: string
+            newName:
+              type: string
+  serviceDeleted:
+    subscribe:
+      summary: Subscribe to service deletion events
+      message:
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
