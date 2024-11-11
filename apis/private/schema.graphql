@@ -1,0 +1,47 @@
+# Service type definition with attributes
+type Service {
+  id: ID!
+  name: String!
+  description: String
+  owner: String
+}
+
+# Input type for creating or updating a service
+input ServiceInput {
+  name: String!
+  description: String
+  owner: String
+}
+
+# Query type for listing and retrieving a specific service
+type Query {
+  # Get a list of all services
+  listServices: [Service!]!
+
+  # Retrieve a single service by ID
+  getServiceById(id: ID!): Service
+}
+
+# Mutation type for creating, updating, and deleting services
+type Mutation {
+  # Create a new service
+  createService(input: ServiceInput!): Service!
+
+  # Update an existing service
+  updateService(id: ID!, input: ServiceInput!): Service!
+
+  # Delete a service by ID
+  deleteService(id: ID!): Boolean!
+}
+
+# Subscription type for async events (serviceCreated, serviceRenamed, serviceDeleted)
+type Subscription {
+  # Triggered when a service is created
+  serviceCreated: Service!
+
+  # Triggered when a service is renamed, includes old and new names
+  serviceRenamed(oldName: String!, newName: String!): Service!
+
+  # Triggered when a service is deleted
+  serviceDeleted(id: ID!): ID!
+}
