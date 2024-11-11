@@ -7,6 +7,9 @@ spec:
   type: service
   lifecycle: production
   owner: sre-team
+  providesApis:
+    - service-registry-http-api
+    - service-registry-async-api
 
 ---
 apiVersion: backstage.io/v1alpha1
