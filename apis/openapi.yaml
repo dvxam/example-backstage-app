@@ -62,13 +62,4 @@ paths:
 components:
   schemas:
     Service:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        owner:
-          type: string
+      $ref: ../entities/service.yaml

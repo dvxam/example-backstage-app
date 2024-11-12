@@ -1,0 +1,29 @@
+---
+"$schema": https://json-schema.org/draft/2020-12/schema
+title: ServiceCreated
+description: Schema for a ServiceCreated event within the Service Registry
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier for the service, must be a UUID
+    format: uuid
+  name:
+    type: string
+    description: Name of the service
+    minLength: 3
+    maxLength: 100
+  description:
+    type: string
+    description: Brief description of the service
+    maxLength: 255
+  owner:
+    type: string
+    description: Owner of the service
+    format: email
+    maxLength: 100
+required:
+  - id
+  - name
+  - owner
+additionalProperties: false

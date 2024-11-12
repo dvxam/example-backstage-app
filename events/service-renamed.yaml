@@ -1,0 +1,25 @@
+---
+"$schema": https://json-schema.org/draft/2020-12/schema
+title: ServiceRenamed
+description: Schema for a ServiceRenamed event within the ServiceRegistry service
+type: object
+properties:
+  id:
+    type: string
+    description: Unique identifier for the service, must be a UUID
+    format: uuid
+  oldName:
+    type: string
+    description: Name of the service
+    minLength: 3
+    maxLength: 100
+  newName:
+    type: string
+    description: Name of the service
+    minLength: 3
+    maxLength: 100
+required:
+  - id
+  - oldName
+  - newName
+additionalProperties: false
